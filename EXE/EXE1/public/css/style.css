@@ -1,73 +1,103 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f8f8f8;
-}
-.nav {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: white;
-    margin-bottom: 20px;
-}
-.login-container {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
-.login-container h2 {
-    margin-bottom: 15px;
-}
-.input-group {
-    text-align: left;
-    margin-bottom: 10px;
-}
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-.input-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.remember {
-    display: flex;
-    align-items: center;
-}
-.remember input {
-    margin-right: 5px;
-}
-.login-container a {
-    display: block;
-    margin: 10px 0;
-    color: blue;
+a {
     text-decoration: none;
 }
-.btn {
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+nav::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border: 1px solid black;
+}
+
+nav ul {
+    position: relative;
+    display: inline-flex;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 5px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+}
+.footer::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border: 1px solid black;
+}
+.Form-login{
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    border: 2px solid black;
+    padding: 20px;
+    width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.Form-login form .text-box {
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Form-login form .text-box label {
+    width: 120px;
+}
+.Form-login form .text-box input {
+    flex-grow: 1;
+    padding: 5px;
+}
+.Form-login form .button-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+.Form-login form .button-box a {
+    color: blue;
+}
+.Form-login form .button-box .submit{
     background: blue;
     color: white;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
-    width: 100%;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
-.footer {
-    margin-top: 20px;
-    text-align: center;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: white;
+.remember-box {
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
+    margin-left: 140px;
 }
