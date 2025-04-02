@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container mt-4">
-        <h2>Welcome to Dashboard</h2>
         @yield('content')
     </div>
 </body>

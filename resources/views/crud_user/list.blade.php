@@ -1,34 +1,70 @@
 @extends('dashboard')
 
 @section('content')
-    <main class="login-form">
-        <div class="container">
-            <div class="row justify-content-center">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($users as $user)
-                            <tr>
-                                <th>{{ $user->id }}</th>
-                                <th>{{ $user->name }}</th>
-                                <th>{{ $user->email }}</th>
-                                <th>
-                                    <a href="{{ route('user.readUser', ['id' => $user->id]) }}">View</a> |
-                                    <a href="{{ route('user.updateUser', ['id' => $user->id]) }}">Edit</a> |
-                                    <a href="{{ route('user.deleteUser', ['id' => $user->id]) }}">Delete</a>
-                                </th>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Đăng Nhập</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="">Home |</a></li>
+            <li><a href="{{route('login')}}">Đăng Xuất </a></li>
+        </ul>
+    </nav>
+
+    <div class="w-full max-w-4xl bg-white shadow-md rounded-lg p-4" style="margin: auto;">
+        <h2 class="text-center text-xl fo   nt-semibold mb-4">Danh sách user</h2>
+        <table class="min-w-full bg-white border border-gray-300">
+            <thead>
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">Id</th>
+                    <th class="border border-gray-300 px-4 py-2">Username</th>
+                    <th class="border border-gray-300 px-4 py-2">Email</th>
+                    <th class="border border-gray-300 px-4 py-2">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($users as $user)
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2 text-center">{{ $user->id }}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-center">{{ $user->name}}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-center">{{ $user->email }}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-center">
+                        <a href="{{ route('user.updateUser', ['id' => $user->id]) }}" class=" text-blue-500">Edit</a> |
+                        <a href="{{ route('user.readUser', ['id' => $user->id]) }}" class=" text-blue-500">View</a> |
+                        <a href="{{ route('user.deleteUser', ['id' => $user->id]) }}" class=" text-blue-500">Delete</a>
+                    </td>
+                </tr>
+                @endforeach($users as $user)
+            </tbody>
+        </table>
+        <div class="flex justify-center mt-4">
+            <nav class="inline-flex">
+                <a href="#" class="px-3 py-1 border border-gray-300 text-blue-500">Previous</a>
+                <a href="#" class="px-3 py-1 border border-gray-300 text-blue-500">1</a>
+                <a href="#" class="px-3 py-1 border border-gray-300 text-blue-500">2</a>
+                <a href="#" class="px-3 py-1 border border-gray-300 text-blue-500">3</a>
+                <a href="#" class="px-3 py-1 border border-gray-300 text-blue-500">Next</a>
+            </nav>
         </div>
-    </main>
+
+    </div>
+    <div class="footer">
+        <p>LapTrinhWeb @1/2024</p>
+    </div>
+</body>
+
+</html>
 @endsection
