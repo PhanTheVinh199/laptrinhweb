@@ -35,6 +35,20 @@
                 @endif
             </div>
             <div class="text-box">
+                <label for="age">age</label>
+                <input type="text" name="age" id="age" placeholder="age" require autofocus>
+                @if ($errors->has('age'))
+                <span class="text-danger">{{ $errors->first('age') }}</span>
+                @endif
+            </div>
+            <div class="text-box">
+                <label for="github">github</label>
+                <input type="text" name="github" id="github" placeholder="github" require autofocus>
+                @if ($errors->has('github'))
+                <span class="text-danger">{{ $errors->first('github') }}</span>
+                @endif
+            </div>
+            <div class="text-box">
                 <label for="password">Mật Khẩu</label>
                 <input type="password" placeholder="Password" id="password" name="password" required>
                 @if ($errors->has('password'))

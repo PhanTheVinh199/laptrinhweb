@@ -36,6 +36,20 @@
                 @endif
             </div>
             <div class="text-box">
+                <label for="age">age</label>
+                <input type="text" name="age" value="{{ $user->age }}" required>
+                @if ($errors->has('age'))
+                <span class="text-danger">{{ $errors->first('age') }}</span>
+                @endif
+            </div>
+            <div class="text-box">
+                <label for="github">github</label>
+                <input type="text" name="github" value="{{ $user->github }}" required>
+                @if ($errors->has('github'))
+                <span class="text-danger">{{ $errors->first('github') }}</span>
+                @endif
+            </div>
+            <div class="text-box">
                 <label for="email">Email</label>
                 <input type="email" name="email" value="{{ $user->email }}" required>
                 @if ($errors->has('email'))
