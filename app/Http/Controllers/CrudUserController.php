@@ -57,8 +57,6 @@ class CrudUserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'age' => 'required',
-            'github' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
@@ -66,8 +64,6 @@ class CrudUserController extends Controller
         $data = $request->all();
         $check = User::create([
             'name' => $data['name'],
-            'age' => $data['age'],
-            'github' => $data['github'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
@@ -115,8 +111,6 @@ class CrudUserController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'age' => 'required',
-            'github' => 'required',
             'email' => 'required|email|unique:users,id,'.$input['id'],
             'password' => 'required|min:6',
         ]);
@@ -136,7 +130,7 @@ class CrudUserController extends Controller
     public function listUser()
     {
         if(Auth::check()){
-            $users = User::all();
+            $users = User::with('roles')->paginate(10);
             return view('crud_user.list', ['users' => $users]);
         }
 
