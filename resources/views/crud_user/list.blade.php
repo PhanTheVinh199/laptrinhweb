@@ -4,8 +4,8 @@
     <main class="login-form">
         <div class="container">
             <div class="row justify-content-center">
-                <table>
-                    <thead>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="table-dark">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
@@ -17,26 +17,32 @@
                     <tbody>
                         @foreach($users as $user)
                             <tr>
-                                <th>{{ $user->id }}</th>
-                                <th>{{ $user->name }}</th>
-                                <th>{{ $user->email }}</th>
-                                <th>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>
                                     @foreach($user->roles as $role)
-                                        <a href="{{ route('user.role', ['id' => $role->id]) }}">
-                                            {{ $role->name }}
-                                        </a>
+                                        <span class="badge bg-primary">
+                                            <a href="{{ route('user.role', ['id' => $role->id]) }}" class="text-white text-decoration-none">
+                                                {{ $role->name }}
+                                            </a>
+                                        </span>
                                     @endforeach
-                                </th>
-                                <th>
-                                    <a href="{{ route('user.readUser', ['id' => $user->id]) }}">View</a> |
-                                    <a href="{{ route('user.updateUser', ['id' => $user->id]) }}">Edit</a> |
-                                    <a href="{{ route('user.deleteUser', ['id' => $user->id]) }}">Delete</a>
-                                </th>
+                                </td>
+                                <td>
+                                    <a href="{{ route('user.readUser', ['id' => $user->id]) }}" class="btn btn-info btn-sm">View</a> |
+                                    <a href="{{ route('user.updateUser', ['id' => $user->id]) }}" class="btn btn-warning btn-sm">Edit</a> |
+                                    <a href="{{ route('user.deleteUser', ['id' => $user->id]) }}" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {!! $users->withQueryString()->links('pagination::bootstrap-5') !!}
+
+                <!-- Pagination -->
+                <div class="d-flex justify-content-center">
+                    {!! $users->withQueryString()->links('pagination::bootstrap-5') !!}
+                </div>
             </div>
         </div>
     </main>
